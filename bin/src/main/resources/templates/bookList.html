@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<head th:replace="common/header :: common-header" />
+<body>
+
+  <div th:replace="adminHome :: navbarAdmin"> </div>
+
+  <div class="container page-content">
+    <table id="table-article" class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Price &#8377;</th>
+        <th>Stock</th>
+        <th>Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-th-each="book : ${books}">
+        <td th:text="${book.title}"></td>
+        <td><div style="display:flex;"><span th:each="item : ${book.categories}" 
+            th:text="${item.getName()}" class="badge badge-secondary mt-1 mr-1" ></span></div></td>
+        <td><div style="display:flex;"><span th:each="item : ${book.authors}" 
+            th:text="${item.getName()}" class="badge badge-secondary mt-1 mr-1" ></span></div></td>
+
+        <td th:text="${book.price}"></td>
+        <td th:text="${book.stock}"></td>
+        <td><a th:href="@{/book/edit?id=}+${book.id}" class="badge badge-primary">EDIT</a>  
+            <a th:href="@{/book/delete?id=}+${book.id}" class="badge badge-danger">DELETE </a> </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+
+  <div th:replace="common/header :: body-scripts"> </div>
+  
+  <script>
+  	$(document).ready(function() {
+	    $('#table-article').DataTable({
+	    	stateSave: true
+	    });
+	} );
+  </script> 
+
+</body>
+</html>

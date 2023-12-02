@@ -16,14 +16,14 @@
            <div class="col-12 col-md-6">
               <div class="row align-items-center">              
                 <div class="col-4">
-                  <a th:href="@{/article-detail?id=}+${cartItem.article.id}"><img class="img-fluid" 
-                  th:src="'/image/article/pictures/'+${cartItem.article.picture}+'.jpg'" alt="${cartItem.article.title}"></a>
+                  <a th:href="@{/book-detail?id=}+${cartItem.book.id}"><img class="img-fluid" 
+                  th:src="'/image/book/pictures/'+${cartItem.book.picture}+'.jpg'" ></a>
                 </div>
                 <div class="col-8">
-                  <a th:href="@{/article-detail?id=}+${cartItem.article.id}" class="h6 bold d-inline-block" th:text=${cartItem.article.title}></a>
+                  <a th:href="@{/book-detail?id=}+${cartItem.book.id}" class="h6 bold d-inline-block" th:text=${cartItem.book.title}></a>
                   <div><i data-feather="check-circle" class="text-success"></i> In Stock</div>                  
-                  <div><small><b>Size</b>: <span th:text="${cartItem.size}"></span></small></div>                  
-                  <small><b>Unit Price</b>: $<span th:text="${#numbers.formatDecimal(cartItem.article.price, 0, 'COMMA', 2, 'POINT')}"></span></small>
+                               
+                  <small><b>Unit Price</b>: &#8377;<span th:text="${#numbers.formatDecimal(cartItem.book.price, 0, 'COMMA', 2, 'POINT')}"></span></small>
                 </div>                
               </div>  
            </div>                 
@@ -33,8 +33,8 @@
                   <div class="row ">
                     <label th:for="${cartItem.id}" class="col-sm-6 col-form-label text-sm-right">Qty</label>
                     <div class="col-sm-6">
-                      <input th:id="${cartItem.id}" th:disabled="${cartItem.article.stock==0}" 
-                         type="number" min="0" max="${cartItem.article.stock}"
+                      <input th:id="${cartItem.id}" th:disabled="${cartItem.book.stock==0}" 
+                         type="number" min="0" max="${cartItem.book.stock}"
                          class="form-control cartItemQty" th:value="${cartItem.qty}">
                       <button style="display: none;"
                           th:id="'update-item-'+${cartItem.id}" type="submit"
@@ -43,7 +43,7 @@
                   </div>            
                 </div>
                 <div class="col-5 text-right">
-                  <span class="font-weight-bold">$ <span th:id="'price'+${cartItem.id}" th:text="${#numbers.formatDecimal(cartItem.subtotal, 0, 'COMMA', 2, 'POINT')}"></span></span>
+                  <span class="font-weight-bold">&#8377; <span th:id="'price'+${cartItem.id}" th:text="${#numbers.formatDecimal(cartItem.subtotal, 0, 'COMMA', 2, 'POINT')}"></span></span>
                 </div>
                 <div class="col-2 ">
                   <a th:href="@{/shopping-cart/remove-item?id=}+${cartItem.id}"><i class="mb-1" data-feather="trash-2"></i></a>                              
@@ -54,7 +54,7 @@
          <div class="text-center mt-3">
             <div th:if="${#lists.isEmpty(cartItemList)}">The cart is empty! </div>
             <small class="counter">TOTAL</small>
-            <h3 class="font-weight-bold">$ <span th:text="${#numbers.formatDecimal(shoppingCart.getGrandTotal(), 0, 'COMMA', 2, 'POINT')}"></span></h3>
+            <h3 class="font-weight-bold">&#8377; <span th:text="${#numbers.formatDecimal(shoppingCart.getGrandTotal(), 0, 'COMMA', 2, 'POINT')}"></span></h3>
             <a th:href="@{/store}" class="btn btn-info rounded-pill "><i data-feather="arrow-left"></i> Back to shop</a>            
             <a th:href="@{/checkout}" class="btn btn-primary rounded-pill">Checkout <i data-feather="arrow-right"></i></a>
         </div>

@@ -19,7 +19,7 @@
           </p>
           <p>
             <span class="text-muted">Amount: </span>
-            <span class="text-info">$ <span th:text="${order.orderTotal}"></span></span>
+            <span class="text-info">&#8377; <span th:text="${order.orderTotal}"></span></span>
           </p>
           <p>The estimated delivery date is <span th:text="${#dates.format(order.shippingDate, 'dd-MMM-yyyy')}"></span></p>
           <a th:href="@{/store}" class="btn btn-info rounded mb-3">CONTINUE SHOPPING</a>

@@ -7,12 +7,12 @@
   <div th:replace="common/header :: navbar"> </div>
 
   
-  <div class="jumbotron jumbotron-fluid mt-0" th:style="'background-image: url(/image/background/adidas-background.jpg);'">
-  	<div class="container">
+  <div class="jumbotron jumbotron-fluid mt-0" th:style="'background-image: url(/image/background/backgrnd.jpg);' ">
+  	<div class="container " style="padding-left:300px; ">
       <div class="row text-left py-5">   
          <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-3 col-xl-6 offset-xl-6 my-auto">  
-            <h2 class="bg-warning text-dark d-inline-block p-1">Brand New</h2>
-            <h1 class="font-weight-bold">High Quality Shoes</h1>
+            <h2 class="bg-warning text-dark d-inline-block p-1"><b>Read More</b></h2>
+            <h1 class="font-weight-bold"><i>Worry Less</i></h1>
             <a th:href="@{/store}" class="btn btn-primary rounded-pill" data-addclass-on-xs="btn-sm">SHOP NOW</a>       
           </div> 
       </div>
@@ -22,13 +22,13 @@
   
   <section class="section py-5 ">
     <div class="container text-center">
-      <h4 class="font-weight-bold ">Featured products</h4>
+      <h4 class="font-weight-bold ">Featured Books</h4>
         <div class="featured-items mt-4">        
-          <div class="card card-product card-featured" th:each="article : ${articles}">
+          <div class="card card-product card-featured" th:each="book : ${books}">
             <div class="card-body">
-              <a th:href="@{/article-detail?id=}+${article.id}"><img class="card-img-top" th:src="${article.picture} ? '/image/article/pictures/'+${article.picture}+'.jpg' : '/image/article/itemexample.jpg'" alt="Card image cap"></a>
-              <a th:href="@{/article-detail?id=}+${article.id}" class="card-title" th:text="${article.title}"></a>
-              <div class="price"><span th:text="'$'+${article.price}"></span></div>
+              <a th:href="@{/book-detail?id=}+${book.id}"><img class="card-img-top" th:src="${book.picture} ? '/image/book/pictures/'+${book.picture}+'.jpg' : '/image/book/itemexample.jpg'" alt="Card image cap"></a>
+              <a th:href="@{/book-detail?id=}+${book.id}" class="card-title" th:text="${book.title}"></a>
+              <div class="price"><span th:text="&#8377;+${book.price}"></span></div>
             </div>              
           </div>
         </div>
@@ -44,24 +44,21 @@
           <div class="text-center features-card">
             <i data-feather="truck" class="text-info"></i>
             <h5>Free Shipping</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Dolorum, eius, quae, aliquam.</p>
+            
           </div>
         </div>
         <div class="col-sm-6 col-md-4 mb-2">
           <div class="text-center features-card">
             <i data-feather="user" class="text-info"></i>
             <h5>Support 24/7</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Dolorum, eius, quae, aliquam.</p>
+            
           </div>
         </div>
         <div class="col-sm-6 col-md-4 mb-2">
           <div class="text-center features-card">
             <i data-feather="gift" class="text-info"></i>
             <h5>Gift cards</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Dolorum, eius, quae, aliquam.</p>
+            
           </div>
         </div>        
       </div>
@@ -72,15 +69,18 @@
   
   <section class="section pt-5">
     <div class="container text-center">
-      <h4 class="font-weight-bold">Popular brands</h4>
+      <h4 class="font-weight-bold">Popular Publications</h4>
       <div class="featured-brands mt-3">   
-         <img class="img-fluid py-5 px-5" src="/image/brands/01.png">
-         <img class="img-fluid py-5 px-5" src="/image/brands/02.png">
-         <img class="img-fluid py-5 px-5" src="/image/brands/03.png">
-         <img class="img-fluid py-5 px-5" src="/image/brands/04.png">
-         <img class="img-fluid py-5 px-5" src="/image/brands/05.png">
-         <img class="img-fluid py-5 px-5" src="/image/brands/06.png">
-         <img class="img-fluid py-5 px-5" src="/image/brands/07.png">
+         <img class="img-fluid py-2 px-7" src="/image/authors/1.png"> 
+         <img class="img-fluid py-2 px-7" src="/image/authors/2.png">
+         <img class="img-fluid py-2 px-7" src="/image/authors/3.png">
+         <img class="img-fluid py-2 px-7" src="/image/authors/4.png">
+         <img class="img-fluid py-2 px-7" src="/image/authors/5.png">
+         <img class="img-fluid py-2 px-7" src="/image/authors/6.png">
+         <img class="img-fluid py-2 px-7" src="/image/authors/7.png">
+         <img class="img-fluid py-2 px-7" src="/image/authors/8.png">
+         <img class="img-fluid py-2 px-7" src="/image/authors/9.png">
+        
       </div>     
       
     </div>  

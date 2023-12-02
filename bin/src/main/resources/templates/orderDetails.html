@@ -37,7 +37,7 @@
       </div>
     </div>
     <hr>
-    <h5 class="font-weight-bold text-center">Purchased products</h5>    
+    <h5 class="font-weight-bold text-center">Purchased books</h5>    
     <div class="row">
       <div class="card-body">
         <div class="row align-items-center border-bottom py-2" th:each="cartItem : ${order.cartItems}">
@@ -46,13 +46,13 @@
             <div class="row align-items-center">
         
               <div class="col-4">
-                <a th:href="@{/article-detail?id=}+${cartItem.article.id}"><img class="img-fluid" th:src="'/image/article/pictures/'+${cartItem.article.picture}+'.jpg'" alt="${cartItem.article.title}"></a>
+                <a th:href="@{/book-detail?id=}+${cartItem.book.id}"><img class="img-fluid" th:src="'/image/book/pictures/'+${cartItem.book.picture}+'.jpg'" ></a>
               </div>
               <div class="col-8">
-                <a th:href="@{/article-detail?id=}+${cartItem.article.id}" class="h6 bold d-inline-block" th:text=${cartItem.article.title}></a>
+                <a th:href="@{/book-detail?id=}+${cartItem.book.id}" class="h6 bold d-inline-block" th:text=${cartItem.book.title}></a>
                   <br>
-                  <div><small><b>Size</b>: <span th:text="${cartItem.size}"></span></small></div>                  
-                  <small><b>Unit Price</b>: $<span th:text="${#numbers.formatDecimal(cartItem.article.price, 0, 'COMMA', 2, 'POINT')}"></span></small>
+                                
+                  <small><b>Unit Price</b>: &#8377;<span th:text="${#numbers.formatDecimal(cartItem.book.price, 0, 'COMMA', 2, 'POINT')}"></span></small>
               </div>
               
             </div>
@@ -60,7 +60,7 @@
               
           <div class="col-12 col-md-6 text-right">
             <span>x<span th:text="${cartItem.qty}"></span> units: </span>                           
-            <span class="font-weight-bold text-info">$ <span th:id="'price'+${cartItem.id}" th:text="${#numbers.formatDecimal(cartItem.subtotal, 0, 'COMMA', 2, 'POINT')}"></span></span>
+            <span class="font-weight-bold text-info">&#8377; <span th:id="'price'+${cartItem.id}" th:text="${#numbers.formatDecimal(cartItem.subtotal, 0, 'COMMA', 2, 'POINT')}"></span></span>
           </div>  
               
             
@@ -69,7 +69,7 @@
        <div class="d-flex justify-content-center align-items-center mt-3">
          <div class="text-center">           
            <small class="counter">TOTAL</small>
-           <h3 class="font-weight-bold">$ <span th:text="${#numbers.formatDecimal(order.orderTotal, 0, 'COMMA', 2, 'POINT')}"></span></h3>
+           <h3 class="font-weight-bold">&#8377; <span th:text="${#numbers.formatDecimal(order.orderTotal, 0, 'COMMA', 2, 'POINT')}"></span></h3>
           </div>         
        </div>
        </div>
